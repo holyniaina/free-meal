@@ -1,0 +1,55 @@
+BoxLayout:
+    orientation:'vertical'
+
+    MDTopAppBar:
+        title: 'Free Meal'
+        md_bg_color: .2, .2, .2, 1
+        specific_text_color: 1, 1, 1, 1
+
+    MDBottomNavigation:
+        panel_color: .2, .2, .2, 1
+
+        MDBottomNavigationItem:
+            name: 'screen 1'
+            text: 'Categories'
+            icon: 'shape'
+
+            MDLabel:
+                text: app.myText
+            
+            MD3Card:
+                padding: 4
+                size_hint: None, None
+                size: "200dp", "100dp"
+
+                MDRelativeLayout:
+
+                    MDIconButton:
+                        icon: "dots-vertical"
+                        pos_hint: {"top": 1, "right": 1}
+
+                    MDLabel:
+                        id: label
+                        text: app.text
+                        adaptive_size: True
+                        color: "grey"
+                        pos: "12dp", "12dp"
+                        bold: True
+
+        MDBottomNavigationItem:
+            name: 'screen 2'
+            text: 'Likes'
+            icon: 'heart'
+
+            MDLabel:
+                text: 'I programming of C++'
+                halign: 'center'
+
+        MDBottomNavigationItem:
+            name: 'screen 3'
+            text: 'Random Food'
+            icon: 'shuffle-variant'
+
+            MDLabel:
+                text: 'JS'
+                halign: 'center'
