@@ -3,6 +3,7 @@ from kivy.lang import Builder
 from kivy.network.urlrequest import UrlRequest
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.card import MDCard
+from kivymd.uix.label import MDLabel
 from kivy.clock import Clock
 import requests
 from kivy.properties import StringProperty
@@ -17,21 +18,21 @@ class Test(MDApp):
     categories = []
 
     def build(self):
+        self.theme_cls.material_style = "M3"
         self.theme_cls.primary_palette = "Orange"
         return Builder.load_file('free_meal.kv')
 
     def on_start(self):
-        styles = {
-            "elevated": "#f6eeee", "filled": "#f4dedc", "outlined": "#f8f5f4"
-        }
-        for style in self.categories:
-            self.root.ids.container.add_widget(
+        print(len(self.categories))
+        for category in self.categories:
+            self.root.ids.box.add_widget(
                 MD3Card(
+                    MDLabel(text=category['strCategory']),
                     line_color=(0.2, 0.2, 0.2, 0.8),
-                    style=style,
-                    text=style.capitalize(),
-                    md_bg_color=styles[style],
+                    md_bg_color='#f8f5f4',
                     shadow_offset=(0, -1),
+                    padding = '10dp',
+                    size_hint=(1,None)
                 )
             )
     

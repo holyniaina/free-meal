@@ -1,55 +1,46 @@
-BoxLayout:
-    orientation:'vertical'
 
-    MDTopAppBar:
-        title: 'Free Meal'
-        md_bg_color: .2, .2, .2, 1
-        specific_text_color: 1, 1, 1, 1
+MDScreen : 
+    MDBoxLayout:
+        orientation:'vertical'
 
-    MDBottomNavigation:
-        panel_color: .2, .2, .2, 1
+        MDTopAppBar:
+            title: 'Free Meal'
+            md_bg_color: .2, .2, .2, 1
+            specific_text_color: 1, 1, 1, 1
 
-        MDBottomNavigationItem:
-            name: 'screen 1'
-            text: 'Categories'
-            icon: 'shape'
+        MDBottomNavigation:
+            panel_color: .2, .2, .2, 1
 
-            MDLabel:
-                text: app.myText
-            
-            MD3Card:
-                padding: 4
-                size_hint: None, None
-                size: "200dp", "100dp"
+            MDBottomNavigationItem:
+                name: 'screen 1'
+                text: 'Categories'
+                icon: 'shape'
 
-                MDRelativeLayout:
+                ScrollView:
+                    do_scroll_x: False
+                    do_scroll_y: True
+                    MDGridLayout:
+                        id:box
+                        cols:2
+                        spacing : '15dp'
+                        pos_hint: { 'top' : '100dp'}
+                        size_hint_y : None
+                        height: self.minimum_height
 
-                    MDIconButton:
-                        icon: "dots-vertical"
-                        pos_hint: {"top": 1, "right": 1}
+            MDBottomNavigationItem:
+                name: 'screen 2'
+                text: 'Likes'
+                icon: 'heart'
 
-                    MDLabel:
-                        id: label
-                        text: app.text
-                        adaptive_size: True
-                        color: "grey"
-                        pos: "12dp", "12dp"
-                        bold: True
+                MDLabel:
+                    text: 'I programming of C++'
+                    halign: 'center'
 
-        MDBottomNavigationItem:
-            name: 'screen 2'
-            text: 'Likes'
-            icon: 'heart'
+            MDBottomNavigationItem:
+                name: 'screen 3'
+                text: 'Random Food'
+                icon: 'shuffle-variant'
 
-            MDLabel:
-                text: 'I programming of C++'
-                halign: 'center'
-
-        MDBottomNavigationItem:
-            name: 'screen 3'
-            text: 'Random Food'
-            icon: 'shuffle-variant'
-
-            MDLabel:
-                text: 'JS'
-                halign: 'center'
+                MDLabel:
+                    text: 'JS'
+                    halign: 'center'
