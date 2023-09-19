@@ -12,9 +12,12 @@ MDScreen :
             panel_color: .2, .2, .2, 1
 
             MDBottomNavigationItem:
+                id:menu
                 name: 'screen 1'
-                text: 'Categories'
+                text: 'Menu'
                 icon: 'shape'
+                on_tab_touch_down: app.on_category_card_pressed
+                on_tab_touch_up: print('app.on_category_card_pressed')
 
                 ScrollView:
                     do_scroll_x: False
@@ -23,9 +26,9 @@ MDScreen :
                         id:box
                         cols:2
                         spacing : '15dp'
-                        pos_hint: { 'top' : '100dp'}
                         size_hint_y : None
                         height: self.minimum_height
+                        padding : '10dp'
 
             MDBottomNavigationItem:
                 name: 'screen 2'
