@@ -1,5 +1,5 @@
 
-MDScreen : 
+MDScreen:
     MDBoxLayout:
         orientation:'vertical'
 
@@ -16,8 +16,7 @@ MDScreen :
                 name: 'screen 1'
                 text: 'Menu'
                 icon: 'shape'
-                on_tab_touch_down: app.on_category_card_pressed
-                on_tab_touch_up: print('app.on_category_card_pressed')
+                on_tab_press: app.on_tab_press(*args)
 
                 ScrollView:
                     do_scroll_x: False
